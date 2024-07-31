@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin\Product;
 use App\Models\product;
 use Livewire\Component;
 
+
 class Single extends Component
 {
 

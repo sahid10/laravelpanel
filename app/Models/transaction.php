@@ -6,20 +6,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Sanctum\HasApiTokens;
 
-
-class product extends Model
+class transaction extends Model
 {
     use HasFactory;
     use HasApiTokens;
 
-    protected $table = 'products';
+    protected $table = 'transactions';
 
     protected $fillable = [
-        'product_name',
-        'price',
-        'amount',
-        'category_id',
-        'image'
+        'user_id',
+        'product_id',
+        'quantity',
+        'total_price',
+        'status'
     ];
     public function getFormattedPriceAttribute()
     {

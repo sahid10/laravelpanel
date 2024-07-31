@@ -79,9 +79,11 @@
     "Product": "Product",
     "Products": "Products",
     "Description": "Description",
-    "Categori": "Categori",
     "Category": "Category",
-    "Categiry_name": "Categiry_name",
+    "Category_name": "Category_name",
     "Categories": "Categories",
-    "Category_name": "Category_name"
+    "Download": "Download",
+    "Product Name": "Product Name",
+    "Image": "Image",
+    "Category_id": "Category_id"
 }

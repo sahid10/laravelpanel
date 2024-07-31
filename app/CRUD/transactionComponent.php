@@ -4,9 +4,9 @@ namespace App\CRUD;
 
 use EasyPanel\Contracts\CRUDComponent;
 use EasyPanel\Parsers\Fields\Field;
-use App\Models\category;
+use App\Models\transaction;
 
-class categoryComponent implements CRUDComponent
+class transactionComponent implements CRUDComponent
 {
     // Manage actions in crud
     public $create = true;
@@ -15,23 +15,23 @@ class categoryComponent implements CRUDComponent
 
     // If you will set it true it will automatically
     // add `user_id` to create and update action
-    public $with_user_id = true;
+    public $with_user_id = false;
 
     public function getModel()
     {
-        return category::class;
+        return transaction::class;
     }
 
     // which kind of data should be showed in list page
     public function fields()
     {
-        return ['category_name', 'description'];
+        return ['quantity', 'total_price', 'status'];
     }
 
     // Searchable fields, if you dont want search feature, remove it
     public function searchable()
     {
-        return ['category_name', 'description'];
+        return ['quantity', 'total_price', 'status'];
     }
 
     // Write every fields in your db which you want to have a input
@@ -39,20 +39,14 @@ class categoryComponent implements CRUDComponent
     // "password", "number", "email", "select", "date", "datetime", "time"
     public function inputs()
     {
-        return [
-            'category_name'=>'text',
-            'description'=>'text'
-        ];
+        return [];
     }
 
     // Validation in update and create actions
     // It uses Laravel validation system
     public function validationRules()
     {
-        return [
-            'category_name'=>'required',
-            'description'=>'required'
-        ];
+        return [];
     }
 
     // Where files will store for inputs

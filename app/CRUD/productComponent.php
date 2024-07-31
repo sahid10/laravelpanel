@@ -3,8 +3,10 @@
 namespace App\CRUD;
 
 use EasyPanel\Contracts\CRUDComponent;
-use EasyPanel\Parsers\Fields\Field;
 use App\Models\product;
+use App\Models\category;
+use EasyPanel\Parsers\Fields\Field;
+
 
 class productComponent implements CRUDComponent
 {
@@ -25,13 +27,13 @@ class productComponent implements CRUDComponent
     // which kind of data should be showed in list page
     public function fields()
     {
-        return ['product_name', 'price', 'amount','description','category'];
+        return ['product_name'=> Field::title('Product Name'), 'price', 'amount', 'category_id', 'image'];
     }
 
     // Searchable fields, if you dont want search feature, remove it
     public function searchable()
     {
-        return ['product_name', 'price', 'amount','description','category'];
+        return ['product_name', 'price', 'amount', 'category_id', 'image'];
     }
 
     // Write every fields in your db which you want to have a input
@@ -40,11 +42,12 @@ class productComponent implements CRUDComponent
     public function inputs()
     {
         return [
-            'product_name'=>'text', 
+            'product_name'=>'text',
             'price'=>'number',
             'amount'=>'number',
-            'description'=>'textarea',
-            'category'=>'textarea'
+            'category_id'=>'select',
+            'image'=>'file'
+            
         ];
     }
 
@@ -56,8 +59,8 @@ class productComponent implements CRUDComponent
             'product_name'=>'required',
             'price'=>'required',
             'amount'=>'required',
-            'description'=>'required',
-            'category'=>'required'
+            'category_id'=>'required',
+            'image'=>'image|max:1024',
         ];
     }
 
@@ -65,7 +68,7 @@ class productComponent implements CRUDComponent
     public function storePaths()
     {
         return [
-            'image'=>'product/picture'
+            'image' => 'public/products'
         ];
     }
 }

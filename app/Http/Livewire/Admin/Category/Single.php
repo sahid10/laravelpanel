@@ -10,8 +10,8 @@ class Single extends Component
 
     public $category;
 
-    public function mount(Category $Category){
-        $this->category = $Category;
+    public function mount(Category $category){
+        $this->category = $category;
     }
 
     public function delete()

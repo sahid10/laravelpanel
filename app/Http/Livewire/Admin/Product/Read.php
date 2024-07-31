@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
 use Livewire\WithPagination;
 
+
 class Read extends Component
 {
     use WithPagination;

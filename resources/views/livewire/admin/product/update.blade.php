@@ -32,17 +32,29 @@
                 <input type='number' id='input-amount' wire:model.lazy='amount' class="form-control  @error('amount') is-invalid @enderror" placeholder='' autocomplete='on'>
                 @error('amount') <div class='invalid-feedback'>{{ $message }}</div> @enderror
             </div>
-            <!-- Description Input -->
+            <!-- Category_id Input -->
             <div class='form-group'>
-                <label for='input-description' class='col-sm-2 control-label '> {{ __('Description') }}</label>
-                <textarea id="input-description" wire:model.lazy='description' class="form-control  @error('description') is-invalid @enderror" placeholder='' autocomplete='on'></textarea>
-                @error('description') <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                <label for='input-category_id' class='col-sm-2 control-label '> {{ __('Category_id') }}</label>
+                <select id='input-category_id' wire:model.lazy='category_id' class="form-control  @error('category_id') is-invalid @enderror">
+                    @foreach($category as $category)
+                <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+            @endforeach
+                </select>
+                @error('category_id') <div class='invalid-feedback'>{{ $message }}</div> @enderror
             </div>
-            <!-- Category Input -->
+            <!-- Image Input -->
             <div class='form-group'>
-                <label for='input-category' class='col-sm-2 control-label '> {{ __('Category') }}</label>
-                <textarea id="input-category" wire:model.lazy='category' class="form-control  @error('category') is-invalid @enderror" placeholder='' autocomplete='on'></textarea>
-                @error('category') <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                <label for='input-image' class='col-sm-2 control-label '> {{ __('Image') }}</label>
+                <input type='file' id='input-image' wire:model='image' class="form-control-file @error('image') is-invalid @enderror">
+
+               
+            @if($image and !$errors->has('image') and $image instanceof Illuminate\Http\UploadedFile and $image->isPreviewable())
+                <a href="{{ $image->temporaryUrl() }}" target="_blank"><img width="200" height="200" class="mt-3 img-fluid shadow" src="{{ $image->temporaryUrl() }}" alt=""></a>
+            @elseif($product->image)
+                <img src="{{ Storage::url($product->image) }}" alt="Product Image" width="100">
+            @endif
+
+                @error('image') <div class='invalid-feedback'>{{ $message }}</div> @enderror
             </div>
 
 

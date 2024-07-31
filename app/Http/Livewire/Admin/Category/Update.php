@@ -20,8 +20,8 @@ class Update extends Component
         'description' => 'required',        
     ];
 
-    public function mount(Category $Category){
-        $this->category = $Category;
+    public function mount(Category $category){
+        $this->category = $category;
         $this->category_name = $this->category->category_name;
         $this->description = $this->category->description;        
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Product;
 
 use App\Models\product;
+use App\Models\category;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -15,24 +16,26 @@ class Update extends Component
     public $product_name;
     public $price;
     public $amount;
-    public $description;
-    public $category;
+    public $category_id;
+    public $category = []; // tambahkan properti categories
+    public $image;
     
     protected $rules = [
         'product_name' => 'required',
         'price' => 'required',
         'amount' => 'required',
-        'description' => 'required',
-        'category' => 'required',        
+        'category_id' => 'required',
+        'image' => 'image|max:1024',        
     ];
 
-    public function mount(Product $Product){
-        $this->product = $Product;
+    public function mount(Product $product){
+        $this->product = $product;
         $this->product_name = $this->product->product_name;
         $this->price = $this->product->price;
         $this->amount = $this->product->amount;
-        $this->description = $this->product->description;
-        $this->category = $this->product->category;        
+        $this->category_id = $this->product->category_id;
+        $this->category = category::all();
+        $this->image = $this->product->image;        
     }
 
     public function updated($input)
@@ -47,12 +50,16 @@ class Update extends Component
 
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('UpdatedMessage', ['name' => __('Product') ]) ]);
         
+        if($this->getPropertyValue('image') and is_object($this->image)) {
+            $this->image = $this->getPropertyValue('image')->store('public/products');
+        }
+
         $this->product->update([
             'product_name' => $this->product_name,
             'price' => $this->price,
             'amount' => $this->amount,
-            'description' => $this->description,
-            'category' => $this->category,
+            'category_id' => $this->category_id,
+            'image' => $this->image,
             'user_id' => auth()->id(),
         ]);
     }
