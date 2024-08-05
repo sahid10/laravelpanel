@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Product;
 
 use App\Models\product;
 use Livewire\Component;
+use Illuminate\Support\Facades\Storage;
 
 
 class Single extends Component
@@ -17,6 +18,7 @@ class Single extends Component
 
     public function delete()
     {
+        
         $this->product->delete();
         $this->dispatchBrowserEvent('show-message', ['type' => 'error', 'message' => __('DeletedMessage', ['name' => __('Product') ]) ]);
         $this->emit('productDeleted');

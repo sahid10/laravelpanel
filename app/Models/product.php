@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Storage;
 
 
 class product extends Model
@@ -24,5 +25,15 @@ class product extends Model
     public function getFormattedPriceAttribute()
     {
         return number_format($this->price, 2, ',', '.');
+    }
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($product) {
+            if ($product->image) {
+                Storage::delete($product->image);
+            }
+        });
     }
 }
