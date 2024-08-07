@@ -24,35 +24,39 @@ Ikuti langkah-langkah di bawah ini untuk mengatur proyek secara lokal.
 
 2. **Install Dependensi:**
 
+    ```bash
     composer install
     npm install
 
 3. **Konfigurasi lingkungan:** 
-    *[Salin .env.example ke .env dan sesuaikan pengaturannya:]
+    *[Salin .env.example ke .env dan sesuaikan pengaturannya & Generate application key:]
 
+    ```bash
     cp .env.example .env
-
-    *[Generate application key:]
-
     php artisan key:generate --ansi
 
 4. **Jalankan migrasi:**
 
+    ```bash
     php artisan migrate
 
 5. **Instal Jetstream dan EasyPanel:**
 
+    ```bash
     php artisan jetstream:install livewire
 
 6. **konfigurasi Livewire dan easypanel**
 
+    ```bash
     composer require livewire/livewire:^2.12
-
     composer require rezaamini-ir/laravel-easypanel:^2.3
 
 7. **Bangun aset frontend:**
 
+    ```bash
     npm run dev
+
 8. **Jalankan aplikasi:**
 
-php artisan serve
+    ```bash
+    php artisan serve
