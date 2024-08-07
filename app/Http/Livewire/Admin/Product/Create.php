@@ -14,7 +14,7 @@ class Create extends Component
 
     public $product_name;
     public $price;
-    public $amount;
+    public $quantity;
     public $category_id;
     public $category = []; // tambahkan properti categories
     public $image;
@@ -22,7 +22,7 @@ class Create extends Component
     protected $rules = [
         'product_name' => 'required',
         'price' => 'required',
-        'amount' => 'required',
+        'quantity' => 'required',
         'category_id' => 'required|exists:category,id',
         'image' => 'image|max:1024',        
     ];
@@ -50,7 +50,7 @@ class Create extends Component
         Product::create([
             'product_name' => $this->product_name,
             'price' => $this->price,
-            'amount' => $this->amount,
+            'quantity' => $this->quantity,
             'category_id' => $this->category_id,
             'image' => $this->image,
             'user_id' => auth()->id(),

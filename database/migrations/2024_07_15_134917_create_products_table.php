@@ -16,7 +16,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('product_name');
             $table->decimal('price', 25, 2)->nullable()->default(123.45);
-            $table->integer('amount');
+            $table->integer('quantity');
             $table->unsignedBigInteger('category_id');
             $table->string('image')->nullable();
             $table->timestamps();

@@ -5,6 +5,7 @@ namespace App\CRUD;
 use EasyPanel\Contracts\CRUDComponent;
 use EasyPanel\Parsers\Fields\Field;
 use App\Models\transaction;
+use App\Models\product;
 
 class transactionComponent implements CRUDComponent
 {

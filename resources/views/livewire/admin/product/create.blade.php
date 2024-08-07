@@ -25,16 +25,17 @@
                 <input type='number' id='input-price' wire:model.lazy='price' class="form-control  @error('price') is-invalid @enderror" placeholder='' autocomplete='on'>
                 @error('price') <div class='invalid-feedback'>{{ $message }}</div> @enderror
             </div>
-            <!-- Amount Input -->
+            <!-- quantity Input -->
             <div class='form-group'>
-                <label for='input-amount' class='col-sm-2 control-label '> {{ __('Amount') }}</label>
-                <input type='number' id='input-amount' wire:model.lazy='amount' class="form-control  @error('amount') is-invalid @enderror" placeholder='' autocomplete='on'>
-                @error('amount') <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                <label for='input-quantity' class='col-sm-2 control-label '> {{ __('Quantity') }}</label>
+                <input type='number' id='input-quantity' wire:model.lazy='quantity' class="form-control  @error('quantity') is-invalid @enderror" placeholder='' autocomplete='on'>
+                @error('quantity') <div class='invalid-feedback'>{{ $message }}</div> @enderror
             </div>
             <!-- Category_id Input -->
             <div class='form-group'>
                 <label for='input-category_id' class='col-sm-2 control-label '> {{ __('Category_id') }}</label>
                 <select id='input-category_id' wire:model.lazy='category_id' class="form-control  @error('category_id') is-invalid @enderror">
+                    <option value="">select</option>
                     @foreach($category as $category)
                 <option value="{{ $category->id }}">{{ $category->category_name }}</option>
             @endforeach

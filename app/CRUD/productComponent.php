@@ -27,13 +27,13 @@ class productComponent implements CRUDComponent
     // which kind of data should be showed in list page
     public function fields()
     {
-        return ['product_name'=> Field::title('Product Name'), 'price', 'amount', 'category_id', 'image'];
+        return ['product_name'=> Field::title('Product Name'), 'price', 'quantity', 'category_id', 'image'];
     }
 
     // Searchable fields, if you dont want search feature, remove it
     public function searchable()
     {
-        return ['product_name', 'price', 'amount', 'category_id', 'image'];
+        return ['product_name', 'price', 'quantity', 'category_id', 'image'];
     }
 
     // Write every fields in your db which you want to have a input
@@ -44,7 +44,7 @@ class productComponent implements CRUDComponent
         return [
             'product_name'=>'text',
             'price'=>'number',
-            'amount'=>'number',
+            'quantity'=>'number',
             'category_id'=>'select',
             'image'=>'file'
             
@@ -58,7 +58,7 @@ class productComponent implements CRUDComponent
         return [
             'product_name'=>'required',
             'price'=>'required',
-            'amount'=>'required',
+            'quantity'=>'required',
             'category_id'=>'required',
             'image'=>'image|max:1024',
         ];

@@ -1,19 +1,50 @@
 @component('admin::layouts.app')
-    <p>You can edit & customize this page in <code>resources/views/vendor/admin/home.blade.php</code></p>
+<div class="container-fluid">
 
-    <h3>Features :</h3>
-    <ul>
-        <li>Create CRUD in config file.</li>
-        <li>Manage route prefix and addresses</li>
-        <li>Beautiful UI/UX with AdminMart template</li>
-        <li>Add/remove an admin with command line</li>
-        <li>Manage pagination count</li>
-        <li>Real time validation with <a href="https://github.com/livewire/livewire">Livewire</a></li>
-        <li>Customize every actions in your project</li>
-        <li>A small and beautiful TODO (You disable it in your config)</li>
-        <li>Create a nice and responsive view based on your data in config file for every CRUDs</li>
-        <li>Custom validation based on config file</li>
-    </ul>
+    {{-- <div wire:id="h5Rvxp2OA3YH4EjBSux3" x-data="{ rebuildModal: false }"> --}}
+<div class="card">
+    <div class="card-header p-0">
+        <div class="d-flex justify-content-between">
+            <h3 class="card-title">Dashboard</h3>
+            {{-- <a href="http://127.0.0.1:8000/admin/crud/create" class="btn btn-info">Create CRUD</a> --}}
+        </div>
+        <ul class="breadcrumb mt-3 py-3 px-4 rounded">
+            <li class="breadcrumb-item"><a href="http://127.0.0.1:8000/admin" class="text-decoration-none">Dashboard</a></li>
+        </ul>
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+                @include('vendor.admin.widget', [
+                    'title' => 'Total Users',
+                    'icon' => 'fas fa-users',
+                    'data' => $TotalUser,
+                ])
+            </div>   
+            <div class="col-sm-6 col-md-4">
+                @include('vendor.admin.widget', [
+                    'title' => 'Total Product',
+                    'icon' => 'fas fa-lightbulb',
+                    'data' => $TotalProduct,
+                ])
+            </div>   
+            <div class="col-sm-6 col-md-4">
+                @include('vendor.admin.widget', [
+                    'title' => 'Total Transaction',
+                    'icon' => 'fas fa-comment',
+                    'data' => $TotalTransaction,
+                ])
+            </div>   
+        </div>
+    </div>
 
-    <p>Check document out : <a href="https://github.com/rezaamini-ir/laravel-easypanel">Github repo</a></p>
+    <div class="mt-4 px-2 rounded">
+        <div class="mt-4 card-body table-responsive p-0">
+            
+        </div>
+
+    </div>
+</div>
+
+<!-- Livewire Component wire-end:h5Rvxp2OA3YH4EjBSux3 -->
+
+</div>
 @endcomponent
