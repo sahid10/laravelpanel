@@ -22,10 +22,12 @@ class product extends Model
         'category_id',
         'image'
     ];
+    
     public function getFormattedPriceAttribute()
     {
         return number_format($this->price, 2, ',', '.');
     }
+
     protected static function boot()
     {
         parent::boot();
@@ -35,5 +37,10 @@ class product extends Model
                 Storage::delete($product->image);
             }
         });
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
     }
 }

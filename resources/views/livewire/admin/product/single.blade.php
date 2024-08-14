@@ -1,6 +1,6 @@
 <tr x-data="{ modalIsOpen : false }">
     <td class="">{{ $product->product_name }}</td>
-    <td class="">{{ $product->price }}</td>
+    <td class="">{{ $product->formatted_price }}</td>
     <td class="">{{ $product->quantity }}</td>
     <td class="">{{ $product->category_id }}</td>
     <td>

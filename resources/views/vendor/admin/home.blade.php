@@ -33,6 +33,20 @@
                     'data' => $TotalTransaction,
                 ])
             </div>   
+            <div class="col-md-6 col-md-4">
+                @include('vendor.admin.widget', [
+                    'title' => 'Total Transaction',
+                    'icon' => 'fas fa-comment',
+                    'data' => $TotalTransaction,
+                ])
+            </div> 
+            <div class="col-md-6 col-md-4">
+                @include('vendor.admin.widget', [
+                    'title' => 'Total Transaction',
+                    'icon' => 'fas fa-comment',
+                    'data' => $TotalTransaction,
+                ])
+            </div> 
         </div>
     </div>
 

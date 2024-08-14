@@ -91,5 +91,11 @@
     "Download": "Download",
     "Product Name": "Product Name",
     "Image": "Image",
-    "Category_id": "Category_id"
+    "Category_id": "Category_id",
+    "Quantity": "Quantity",
+    "Total_price": "Total_price",
+    "Product_id": "Product_id",
+    "User_id": "User_id",
+    "Transaction": "Transaction",
+    "Transactions": "Transactions"
 }

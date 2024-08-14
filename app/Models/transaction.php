@@ -20,8 +20,14 @@ class transaction extends Model
         'total_price',
         'status'
     ];
+
     public function getFormattedPriceAttribute()
     {
-        return number_format($this->price, 2, ',', '.');
+        return number_format($this->total_price, 2, ',', '.');
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
     }
 }
