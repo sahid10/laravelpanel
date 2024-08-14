@@ -32,7 +32,7 @@ class Update extends Component
         $this->product = $product;
         $this->product_name = $this->product->product_name;
         $this->price = $this->product->price;
-        $this->amount = $this->product->amount;
+        $this->quantity = $this->product->quantity;
         $this->category_id = $this->product->category_id;
         $this->category = category::all();
         $this->image = $this->product->image;        
