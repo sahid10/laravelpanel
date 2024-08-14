@@ -12,6 +12,16 @@ Aplikasi e-commerce ini dibangun menggunakan Laravel, Jetstream, Livewire, dan E
 - Antarmuka Admin dengan EasyPanel
 - Autentikasi dan Registrasi dengan Jetstream
 
+## System Requirements
+- "Mysql/Wamp64"
+- "php": "^8.1",
+- "guzzlehttp/guzzle": "^7.2",
+- "laravel/framework": "^10.0",
+- "laravel/jetstream": "^4.3",
+- "laravel/sanctum": "^3.2",
+- "laravel/tinker": "^2.8",
+- "livewire/livewire": "2.12",
+- "rezaamini-ir/laravel-easypanel": "2.3"
 ## Instalasi
 
 Ikuti langkah-langkah di bawah ini untuk mengatur proyek secara lokal.
