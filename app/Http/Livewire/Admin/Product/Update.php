@@ -15,7 +15,7 @@ class Update extends Component
 
     public $product_name;
     public $price;
-    public $amount;
+    public $quantity;
     public $category_id;
     public $category = []; // tambahkan properti categories
     public $image;
@@ -23,7 +23,7 @@ class Update extends Component
     protected $rules = [
         'product_name' => 'required',
         'price' => 'required',
-        'amount' => 'required',
+        'quantity' => 'quantity',
         'category_id' => 'required',
         'image' => 'image|max:1024',        
     ];
