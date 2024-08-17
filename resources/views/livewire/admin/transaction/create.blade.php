@@ -13,19 +13,17 @@
     <form class="form-horizontal" wire:submit.prevent="create" enctype="multipart/form-data">
 
         <div class="card-body">
-            
-            <!-- Product_id Input -->
+                        <!-- Product_id Input -->
             <div class='form-group'>
                 <label for='input-product_id' class='col-sm-2 control-label '> {{ __('Product_id') }}</label>
                 <select id='input-product_id' wire:model.lazy='product_id' class="form-control  @error('product_id') is-invalid @enderror">
-                    <option value="">select</option>
+                        <option value="">Select</option>
                     @foreach($product as $product)
                         <option value='{{ $product->id }}'>{{ $product->product_name }}</option>
                     @endforeach
                 </select>
                 @error('product_id') <div class='invalid-feedback'>{{ $message }}</div> @enderror
             </div>
-
             <!-- Quantity Input -->
             <div class='form-group'>
                 <label for='input-quantity' class='col-sm-2 control-label '> {{ __('Quantity') }}</label>
@@ -40,7 +38,7 @@
             </div>
             <!-- Status Input -->
             <div class='form-group'>
-                <label for='input-status' class='col-sm-2 control-label '> {{ __('status') }}</label>
+                <label for='input-status' class='col-sm-2 control-label '> {{ __('Status') }}</label>
                 <select id='input-status' wire:model.lazy='status' class="form-control  @error('status') is-invalid @enderror">
                     <option value="">select</option>
                     <option value="pending">pending</option>
@@ -49,6 +47,7 @@
                 </select>
                 @error('status') <div class='invalid-feedback'>{{ $message }}</div> @enderror
             </div>
+
         </div>
 
         <div class="card-footer">

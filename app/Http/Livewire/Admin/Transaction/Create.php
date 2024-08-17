@@ -8,7 +8,6 @@ use App\Models\product;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-
 class Create extends Component
 {
     use WithFileUploads;
@@ -17,14 +16,13 @@ class Create extends Component
     public $total_price;
     public $status;
     public $product_id;
-    public $product=[];         //properti product
-    
+    public $product=[];
     
     protected $rules = [
         'quantity' => 'required|integer|min:1',
         'total_price' => 'required|numeric|min:0',
         'status' => 'required',
-        'product_id' => 'required',      
+        'product_id' => 'required',           
     ];
 
     public function mount()
@@ -33,12 +31,16 @@ class Create extends Component
     }
 
     public function updated($propertyName)
-    {
-        
-        if ($propertyName === 'quantity' || $propertyName === 'product_id') {
-            $this->calculateTotalPrice();
-        }
+{
+    // Melakukan validasi hanya pada input yang diperbarui
+    $this->validateOnly($propertyName);
+
+    // Menghitung total harga jika properti 'quantity' atau 'product_id' diperbarui
+    if ($propertyName === 'quantity' || $propertyName === 'product_id') {
+        $this->calculateTotalPrice();
     }
+}
+
 
     public function calculateTotalPrice()
     {
@@ -63,8 +65,7 @@ class Create extends Component
             'product_id' => $this->product_id,       
             'quantity' => $this->quantity,
             'total_price' => $this->total_price,
-            'status' => $this->status,           
-               
+            'status' => $this->status,             
         ]);
 
         $this->reset();

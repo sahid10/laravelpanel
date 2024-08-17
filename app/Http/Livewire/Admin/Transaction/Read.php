@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Transaction;
 
 use App\Models\transaction;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -37,6 +38,14 @@ class Read extends Component
     public function render()
     {
         $data = Transaction::query();
+
+    // Dapatkan pengguna yang sedang login
+    $user = auth()->user();
+
+    // Jika pengguna bukan admin, filter berdasarkan user_id
+    if (!$user->roles()->where('name', 'super_admin')->exists()) {
+        $data->where('user_id', $user->id);
+    }
 
         $instance = getCrudConfig('transaction');
         if($instance->searchable()){

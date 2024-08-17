@@ -3,15 +3,18 @@
 namespace App\Http\Livewire\Admin\Transaction;
 
 use App\Models\transaction;
+use App\Models\product;
 use Livewire\Component;
 
 class Single extends Component
 {
 
     public $transaction;
+    public $product;
 
-    public function mount(Transaction $Transaction){
-        $this->transaction = $Transaction;
+    public function mount(Transaction $transaction){
+        $this->transaction = $transaction;
+        $this->product = $transaction->product;
     }
 
     public function delete()

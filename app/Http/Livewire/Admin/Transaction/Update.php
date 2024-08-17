@@ -3,8 +3,6 @@
 namespace App\Http\Livewire\Admin\Transaction;
 
 use App\Models\transaction;
-use App\Models\product;
-use App\Models\User;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -15,19 +13,17 @@ class Update extends Component
     public $transaction;
 
     public $product_id;
-    public $product=[];
     public $user_id;
-    public $user=[];
     public $quantity;
     public $total_price;
     public $status;
     
     protected $rules = [
+        'product_id' => 'select',
+        'user_id' => 'required|exists:users,id',
         'quantity' => 'required|integer|min:1',
         'total_price' => 'required|numeric|min:0',
-        'status' => 'required',
-        'product_id' => 'required',       
-        'user_id' => 'required',       
+        'status' => 'select',        
     ];
 
     public function mount(Transaction $transaction){
@@ -36,9 +32,7 @@ class Update extends Component
         $this->user_id = $this->transaction->user_id;
         $this->quantity = $this->transaction->quantity;
         $this->total_price = $this->transaction->total_price;
-        $this->status = $this->transaction->status; 
-        $this->product = product::all();       
-        $this->user = user::all();       
+        $this->status = $this->transaction->status;        
     }
 
     public function updated($input)
